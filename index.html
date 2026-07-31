@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Web Page Refresh Recommendation System Using Logistic Regression</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;max-width:900px;margin:40px auto;padding:20px;line-height:1.7;color:#222}
+h1,h2{color:#0b4f8a}
+table{border-collapse:collapse;width:100%;margin:16px 0}
+th,td{border:1px solid #ccc;padding:8px;text-align:left}
+th{background:#f2f2f2}
+hr{margin:30px 0}
+</style>
+</head>
+<body>
+<h1>Web Page Refresh Recommendation System Using Logistic Regression</h1>
+<p><strong>Author:</strong> Abdul Samad</p>
+<p><strong>Internship:</strong> FlyRank Machine Learning Internship 2026</p>
+
+<hr>
+
+<h2>Abstract</h2>
+<p>This project presents a prototype Web Page Refresh Recommendation System developed during the FlyRank Machine Learning Internship. The goal is to assist in identifying webpages that may benefit from content review by analyzing historical search-performance and user-engagement metrics. The project uses the anonymized FlyRank internship dataset obtained from the official Hugging Face repository. Because the dataset does not contain a ground-truth “needs refresh” label, a proxy target was defined for educational purposes. A Logistic Regression classifier was trained using selected Google Search Console and Google Analytics features. Model performance was evaluated using accuracy, precision, recall, F1-score, a confusion matrix, and a classification report. The project demonstrates a complete supervised machine learning workflow and highlights the importance of careful feature selection, proxy labels, and honest evaluation.</p>
+
+<h2>1. Introduction</h2>
+<p>Large websites often contain thousands of pages, making manual review difficult. Machine learning can help prioritize which pages should be reviewed first. This project demonstrates a simple and interpretable approach using Logistic Regression to classify pages as potential refresh candidates. The system is intended as a decision-support prototype rather than a production SEO system.</p>
+
+<h2>2. Problem Statement</h2>
+<p>The objective is to predict whether a webpage should be recommended for review using historical search and engagement data. The prediction has two classes: <strong>Refresh</strong> and <strong>No Refresh</strong>.</p>
+
+<h2>3. Dataset</h2>
+<p>The study uses the anonymized FlyRank internship dataset hosted on Hugging Face. Data includes Google Search Console and Google Analytics metrics such as impressions, clicks, average position, page views, sessions, engaged sessions, and scroll events. No client names, URLs, or private information were used.</p>
+
+<h2>4. Methodology</h2>
+<ul>
+<li>Load the official FlyRank dataset.</li>
+<li>Inspect and preprocess the data.</li>
+<li>Handle missing values.</li>
+<li>Create a proxy target label named <em>Needs_Refresh</em>.</li>
+<li>Select relevant features.</li>
+<li>Split the dataset into training and testing sets.</li>
+<li>Train a Logistic Regression model.</li>
+<li>Evaluate model performance.</li>
+<li>Generate refresh recommendations.</li>
+</ul>
+
+<h2>5. Features Used</h2>
+<ul>
+<li>Google Search Average Position</li>
+<li>Google Analytics Page Views</li>
+<li>Google Analytics Sessions</li>
+<li>Google Analytics Engaged Sessions</li>
+<li>Scroll Events</li>
+</ul>
+
+<h2>6. Model</h2>
+<p>Logistic Regression was selected because it is simple, interpretable, efficient for binary classification, and suitable for structured tabular data.</p>
+
+<h2>7. Results</h2>
+<table>
+<tr><th>Metric</th><th>Value</th></tr>
+<tr><td>Training Accuracy</td><td>91.65%</td></tr>
+<tr><td>Testing Accuracy</td><td>91.63%</td></tr>
+<tr><td>Precision</td><td>13.79%</td></tr>
+<tr><td>Recall</td><td>31.20%</td></tr>
+<tr><td>F1 Score</td><td>19.13%</td></tr>
+</table>
+
+<h2>8. Discussion</h2>
+<p>The model generalized consistently because training and testing accuracy were similar. However, precision and F1-score remained modest because the target variable was a proxy label rather than an official annotation and the classes were imbalanced. These findings show both the usefulness and the limitations of applying supervised learning when a true target is unavailable.</p>
+
+<h2>9. Limitations</h2>
+<ul>
+<li>No official "Needs Refresh" label was available.</li>
+<li>A proxy target was created for educational purposes.</li>
+<li>The selected features may not capture every factor influencing content quality.</li>
+<li>This system should be considered decision support rather than an automated SEO solution.</li>
+</ul>
+
+<h2>10. Conclusion</h2>
+<p>This project demonstrates a complete machine learning workflow using the FlyRank internship dataset. Logistic Regression was used to generate webpage refresh recommendations from search-performance features. Although the current prototype has limitations, it provides a practical foundation for future improvements using better labels, additional features, and alternative machine learning models.</p>
+
+<h2>References</h2>
+<ol>
+<li>FlyRank Machine Learning Internship Dataset.</li>
+<li>Google Search Console Documentation.</li>
+<li>Google Analytics Documentation.</li>
+<li>Scikit-learn Documentation.</li>
+</ol>
+
+</body>
+</html>
